@@ -1,1 +1,8 @@
 http://sciencewise.info/
+
+scoring keyword and topic modelling:
+https://www.google.co.in/search?q=scoring+on+search+keyword&ie=utf-8&oe=utf-8&client=firefox-b&gfe_rd=cr&ei=EMWfWbLYG8KL8Qf4wYOICA
+https://github.com/bekerov?tab=repositories
+https://github.com/bekerov/textClassifier
+https://github.com/bekerov/bigartm-book
+https://link.springer.com/content/pdf/10.1007%2Fs10799-015-0247-z.pdf
