@@ -1,6 +1,6 @@
 http://sciencewise.info/
 
-scoring keyword and topic modelling:
+scoring keyword, text classifier and topic modelling:
 https://www.google.co.in/search?q=scoring+on+search+keyword&ie=utf-8&oe=utf-8&client=firefox-b&gfe_rd=cr&ei=EMWfWbLYG8KL8Qf4wYOICA
 https://github.com/bekerov?tab=repositories
 https://github.com/bekerov/textClassifier
