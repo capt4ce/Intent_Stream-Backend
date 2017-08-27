@@ -6,3 +6,8 @@ https://github.com/bekerov?tab=repositories
 https://github.com/bekerov/textClassifier
 https://github.com/bekerov/bigartm-book
 https://link.springer.com/content/pdf/10.1007%2Fs10799-015-0247-z.pdf
+
+
+
+cosine similarity:
+https://stackoverflow.com/questions/1746501/can-someone-give-an-example-of-cosine-similarity-in-a-very-simple-graphical-wa
