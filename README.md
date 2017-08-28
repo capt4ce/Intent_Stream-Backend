@@ -1,1 +1,1 @@
-# DExyS---Destination-Exploratory-Search
+# DExyS - Destination Exploratory Search
