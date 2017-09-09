@@ -1,0 +1,12 @@
+-hasName
+-hasAlias
+-country:
+-city:
+-area:
+-address:
+-destinationType: beach, restaurant, hotel
+-nearby: beach, restaurant, hotel (destiation type)
+-nearbyDestination: pantai kuta, ayam wong solo, KFC (destination name)
+-tags & value: sunset, surfing, white sand (can be voted)
+
+

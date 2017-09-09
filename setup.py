@@ -1,4 +1,3 @@
-from DExyS.search import main as search
-from DExyS.search import ontology as search
+from DExyS import main as dexys
 
 print('aaa')

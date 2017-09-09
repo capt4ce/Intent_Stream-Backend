@@ -10,11 +10,8 @@ app={
 
 ontology={
 	'path': '/destination.owl',
-	'URI': 'http://www.semanticweb.org/capt4ce/ontologies/destinations',
+	'URI': 'http://www.semanticweb.org/capt4ce/ontologies/destination',
 	'name': 'Travelling Destination Ontology',
 	'version': '1.0.0',
 	'author': 'tripLo Team'
 }
-
-def aaa():
-    	return 'aaa'

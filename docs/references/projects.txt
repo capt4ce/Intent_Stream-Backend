@@ -11,3 +11,8 @@ https://link.springer.com/content/pdf/10.1007%2Fs10799-015-0247-z.pdf
 
 cosine similarity:
 https://stackoverflow.com/questions/1746501/can-someone-give-an-example-of-cosine-similarity-in-a-very-simple-graphical-wa
+
+
+
+similarity finding techniques:
+http://mines.humanoriented.com/classes/2010/fall/csci568/portfolio_exports/bfindley/similarity.html

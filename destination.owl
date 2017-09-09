@@ -1,69 +1,749 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="http://www.semanticweb.org/capt4ce/ontologies/destinations"
      xml:base="http://www.semanticweb.org/capt4ce/ontologies/destinations"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:destinations="http://www.semanticweb.org/capt4ce/ontologies/destinations#"
+     xmlns:destination="http://www.semanticweb.org/capt4ce/ontologies/destination#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/capt4ce/ontologies/destinations">
-    <Prefix name="" IRI="http://www.semanticweb.org/capt4ce/ontologies/destinations#"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Declaration>
-        <NamedIndividual IRI="#Indonesia"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#city"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#area"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#location"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#tag"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#state"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#country"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#destination"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#India"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#area"/>
-        <Class IRI="#location"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#city"/>
-        <Class IRI="#location"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#country"/>
-        <Class IRI="#location"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#state"/>
-        <Class IRI="#location"/>
-    </SubClassOf>
-    <ClassAssertion>
-        <Class IRI="#country"/>
-        <NamedIndividual IRI="#India"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#country"/>
-        <NamedIndividual IRI="#Indonesia"/>
-    </ClassAssertion>
-</Ontology>
+     xmlns:ontology="http://dbpedia.org/ontology/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/ontology/location -->
+
+    <owl:AnnotationProperty rdf:about="http://dbpedia.org/ontology/location"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasArea -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasArea">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Area"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasCountry -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasCountry">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Country"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyObject">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasNearbyTag"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Tag"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceObject">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasAlias -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasAlias">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasName"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasCurrency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasCurrency">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasCurrencySymbol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasCurrencySymbol">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasLat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasLat">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasLng"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasLng -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasLng">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasPlaceData"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Activity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Tag"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Airport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Airport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Apartment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Apartment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Area -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Area">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Art -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Art">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Bar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Bar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Beach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Beach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Nature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Beautiful -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Beautiful">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Budha -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Budha">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Religious"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Bus_Stand -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Bus_Stand">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Bus_Station -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Bus_Station">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Camping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Camping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Christian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Christian">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Religious"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+        <rdfs:comment>List Cities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Clean -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Clean">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Continent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Continent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Culture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Culture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Desert -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Desert">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Nature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Destination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Destination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Dirty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Dirty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Event -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Event">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Festivals -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Festivals">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Hindu -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Hindu">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Religious"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Historic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Historic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Homestay -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Homestay">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Hostel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Hostel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Hotel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Hotel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Islam -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Islam">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Religious"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Island -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Island">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Lake -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Lake">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Nature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Mountain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Mountain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Nature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Museum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Museum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Nature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Nature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Nightlife -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Nightlife">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Port -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Port">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Quality -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Quality">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Tag"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Religious -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Religious">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Resort -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Resort">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Accommodation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Restaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Restaurant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#PlaceType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#River -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#River">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Nature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Shopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Shopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Sightseeing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Sightseeing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#State -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#State">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Sunrise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Sunrise">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+        <rdfs:comment>A place where we can enjoy sunrise</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Sunset -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Sunset">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+        <rdfs:comment>A place where we can enjoy sunset</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Surfing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Surfing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Water_Sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Tag -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Tag">
+        <rdfs:comment>It differs with the PlaceType as the nature of Tag is uncertain and can be based on opinion. Tag can be added by user and voted by user.
+It has influence on the weighting in searching according to number of votes and and its recentness.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Train_Station -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Train_Station">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Transportation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Water_Sport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Water_Sport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Bali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Bali">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
+        <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Indonesia"/>
+        <ontology:location rdf:resource="http://dbpedia.org/resource/Indonesia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Goa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Goa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
+        <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#India"/>
+        <ontology:location rdf:resource="http://dbpedia.org/resource/India"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#India -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#India">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Country"/>
+        <destination:hasCurrency>Rupee</destination:hasCurrency>
+        <destination:hasCurrencySymbol>Rs</destination:hasCurrencySymbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Indonesia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Indonesia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Country"/>
+        <destination:hasCurrency>Rupiah</destination:hasCurrency>
+        <destination:hasCurrencySymbol>Rp</destination:hasCurrencySymbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Mumbai -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Mumbai">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
+        <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#India"/>
+        <ontology:location rdf:resource="http://dbpedia.org/resource/India"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Yogyakarta -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Yogyakarta">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
+        <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Indonesia"/>
+        <ontology:location rdf:resource="http://dbpedia.org/resource/Indonesia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#dest1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#dest1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Beach"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Destination"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Sunset"/>
+        <destination:hasCity rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Goa"/>
+        <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#India"/>
+        <destination:hasLat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.7192</destination:hasLat>
+        <destination:hasLng rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">73.69</destination:hasLng>
+        <destination:hasName>Querim Beach, North Goa</destination:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Budha"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Christian"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Hindu"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Islam"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Country"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Destination"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#State"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
 
 
 
