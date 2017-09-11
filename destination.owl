@@ -156,6 +156,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasDescription">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#hasLat -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#hasLat">
@@ -450,6 +458,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Kite_Surfing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Kite_Surfing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Water_Sport"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Lake -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Lake">
@@ -486,6 +502,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Nightlife">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#Paragliding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Paragliding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Water_Sport"/>
     </owl:Class>
     
 
@@ -710,9 +734,30 @@ It has influence on the weighting in searching according to number of votes and 
         <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Sunset"/>
         <destination:hasCity rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Goa"/>
         <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#India"/>
+        <destination:hasAlias>Keri Beach</destination:hasAlias>
+        <destination:hasAlias>Kerim Beach</destination:hasAlias>
+        <destination:hasDescription>Also known as Keri Beach or Kerim Beach, it is the northern-most beach of Goa and located close to Tiracol fort. It has an Old Portuguese Fort and a 17th century church overlooking a peaceful unexplored beach with calm shore.  The fort, now converted to a hotel, can be reached by a ferry which plies every half an hour. A picturesque scene not to be missed are the fishing boats which line up on the beach at 6pm everyday to go out in the sea and come back the next morning at 5am. The beach has paragliding and other water sports. However it is not safe for swimming especially near the Tiracol estuary (formed by the Tiracol river meeting the Arabian Sea). Kerim is located 58 km north of Panaji and can be reached from the Arambol Beach.</destination:hasDescription>
+        <destination:hasDescription>Querim Beach is a beach in Goa, also known as Keri beach. It is the northernmost beach in Goa. The beach comprises a long stretch of sand with a few rocky outcrops, rows of trees and a river inlet. It is located to the north of the Arambol beach, at a distance of 30 kilometers from Mapusa.</destination:hasDescription>
         <destination:hasLat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.7192</destination:hasLat>
         <destination:hasLng rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">73.69</destination:hasLng>
         <destination:hasName>Querim Beach, North Goa</destination:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/capt4ce/ontologies/destination#dest2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#dest2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Beach"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Destination"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Kite_Surfing"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Paragliding"/>
+        <destination:hasCity rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Goa"/>
+        <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#India"/>
+        <destination:hasDescription>A 16 km long unexplored beach surrounded by cliffs on two sides, with a Fresh Water Lake and chirpy markets nearby, Arambol is considered to be one of the best beaches in Goa. This cove like beach is a traditional fisherman village with a distinctly bohemian feel which attracts many international tourists and alternative travellers. A short walk to the north takes you to several attractive bays, the most famous among which is the sweet water lake at Paliem Beach (also referred to as Kalacha). This lake is fed by hot springs and lined with sulphurous mud which is believed to be have healing properties and is a favourite among the hippie crowd who take mud baths here. Beyond the lake, is a spectacular Banyan Tree with a stone sculpture at its base created by a famous artist which has become an attraction in its own right. The beach also hosts night parties, has a rich music scene and is dubbed to be the capital of hippie culture in Goa. The ‘Glastonbury Street’ leading to the beach is chock full of boutiques selling a bizarre and wonderful array of knick-knacks. This place is also good for paragliding and Kite Surfing making it one of the best beaches in Goa. Arambol beach is located  50 km north of Panaji.</destination:hasDescription>
+        <destination:hasLat rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.6846</destination:hasLat>
+        <destination:hasLng rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">73.7032</destination:hasLng>
+        <destination:hasName>Arambol Beach, North Goa</destination:hasName>
     </owl:NamedIndividual>
     
 
