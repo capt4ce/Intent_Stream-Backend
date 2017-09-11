@@ -692,6 +692,7 @@ It has influence on the weighting in searching according to number of votes and 
         <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Country"/>
         <destination:hasCurrency>Rupee</destination:hasCurrency>
         <destination:hasCurrencySymbol>Rs</destination:hasCurrencySymbol>
+        <destination:hasName>India</destination:hasName>
     </owl:NamedIndividual>
     
 
@@ -702,6 +703,7 @@ It has influence on the weighting in searching according to number of votes and 
         <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Country"/>
         <destination:hasCurrency>Rupiah</destination:hasCurrency>
         <destination:hasCurrencySymbol>Rp</destination:hasCurrencySymbol>
+        <destination:hasName>Indonesia</destination:hasName>
     </owl:NamedIndividual>
     
 
@@ -711,6 +713,7 @@ It has influence on the weighting in searching according to number of votes and 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Mumbai">
         <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
         <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#India"/>
+        <destination:hasName>Mumbai</destination:hasName>
         <ontology:location rdf:resource="http://dbpedia.org/resource/India"/>
     </owl:NamedIndividual>
     
@@ -721,6 +724,7 @@ It has influence on the weighting in searching according to number of votes and 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/capt4ce/ontologies/destination#Yogyakarta">
         <rdf:type rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#City"/>
         <destination:hasCountry rdf:resource="http://www.semanticweb.org/capt4ce/ontologies/destination#Indonesia"/>
+        <destination:hasName>Yogyakarta</destination:hasName>
         <ontology:location rdf:resource="http://dbpedia.org/resource/Indonesia"/>
     </owl:NamedIndividual>
     

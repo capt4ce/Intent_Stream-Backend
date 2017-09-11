@@ -7,6 +7,8 @@ import config
 filename = config.ROOT_DIR+config.ontology['path']
 uri = config.ontology['URI']
 ONTO = rdflib.Namespace(uri+'#')
+RDF = rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+RDFS = rdflib.Namespace('http://www.w3.org/2000/01/rdf-schema#')
 
 rdfextras.registerplugins() # so we can Graph.query()
 
@@ -83,8 +85,6 @@ def searchMatchingDestination(queries):
     keywordsLiteral = keywordsLiteral.replace('[','(')
     keywordsLiteral = keywordsLiteral.replace(']',')')
 
-
-
     query="""
         SELECT DISTINCT ?subject
         WHERE {
@@ -112,19 +112,49 @@ def searchMatchingDestination(queries):
     # print()
     # for dest in destinations:
     #     print(dest.value(ONTO.hasName))
+    #     for i in list(dest.objects(RDF.type)):
+    #         print ((i.identifier).rsplit('#')[-1])
+        
     # print(list(destinations[0].__iter__()))
 
     result = []
     for dest in destinations:
+        dest_types = []
+        dest_tags = []
+        for i in dest.objects(RDF.type):
+            dest_type=(str(i.identifier)).rsplit('#')[-1]
+            if (dest_type != 'NamedIndividual' and dest_type != 'Destination'):
+                if (isType(i)):
+                    dest_types.append(dest_type)
+                elif (isTag(i)):
+                    dest_tags.append(dest_type)
         result.append({
             'name': '%s' %dest.value(ONTO.hasName),
-            'description': dest.value(ONTO.hasDescription)
+            # 'description': dest.value(ONTO.hasDescription),
+            'types': dest_types,
+            'tags': dest_tags,
+            'country': '%s' %((dest.value(ONTO.hasCountry)).value(ONTO.hasName) if dest.value(ONTO.hasCountry) else '')
         })
 
     print()
     print(str(result))
 
     return result
+
+
+def isType(inst):
+    result = inst.transitive_objects(RDFS.subClassOf)
+    for res in result:
+        if ((str(res.identifier)).rsplit('#')[-1] == 'PlaceType'):
+            return True
+    return False
+    
+def isTag(inst):
+    result = inst.transitive_objects(RDFS.subClassOf)
+    for res in result:
+        if ((str(res.identifier)).rsplit('#')[-1] == 'Tag'):
+            return True
+    return False
 
 
 def getAttributes(destinations):
