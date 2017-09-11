@@ -7,10 +7,34 @@ from . import worker
 #   destination search result
 #   additional few highest keywords
 # have an option to return all other keywords
-def querySearch(queryStr):
-    result = sparql.searchWithQuery(queryStr)
+
+
+# the query string is matched with the dictionary first to get a proper word
+def querySearch(queryStr, start, limit):
+    words=queryStr.split(' ')
+
+    # matching with dictionary
+    queries = []
+
+    destinations = sparql.searchMatchingDestination(queries)
+    result = processDestinations(destinations, start, limit)
+    # result = sparql.searchWithQuery(queryStr)
+    
     return result
 
-def keywordSearch(keywords):
-    result = sparql.searchWithKeyword(keywords)
+# the keywords are collected and directly used in the further processing
+def keywordSearch(keywords, start, limit):
+    queries = []
+    for key in queries:
+        queries.append(key)
+    destinations = sparql.searchMatchingDestination(queries)
+    result = processDestinations(destinations, start, limit)
+    # result = sparql.searchWithKeyword(keywords)
+    return result
+
+
+# ranking the destinations, n getting the attributes of the ranked destinations
+def processDestinations(destinations, start, limit):
+    ranked = worker.cosineSimilarity(destinations, start, limit)
+    result = sparql.getAttributes(ranked)
     return result
