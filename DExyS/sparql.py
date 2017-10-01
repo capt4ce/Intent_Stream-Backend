@@ -162,7 +162,7 @@ def getAttributes(destinations):
     return result
 
 
-searchMatchingDestination(['Sunset','Arambol Beach, North Goa'])
+# searchMatchingDestination(['Sunset','Arambol Beach, North Goa'])
 
 
 
