@@ -22,7 +22,7 @@ def querySearch(queryStr, start=0, limit=0):
     destinations = sparql.searchMatchingDestination(queries)
     result = processDestinations(destinations, keywords, start, limit)
     # result = sparql.searchWithQuery(queryStr)
-    
+    print('\n'+str(result))
     return result
 
 # the keywords are collected and directly used in the further processing
@@ -38,6 +38,6 @@ def keywordSearch(keywords, start, limit):
 
 # ranking the destinations, n getting the attributes of the ranked destinations
 def processDestinations(destinations, keywords, start, limit):
-    ranked = worker.execute(destinations, keywords, start, limit)
-    result = sparql.getAttributes(ranked)
+    result = worker.execute(destinations, keywords, start, limit)
+    # result = sparql.getAttributes(ranked)
     return result

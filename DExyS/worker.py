@@ -110,8 +110,26 @@ def execute(destinations, keywords, start, limit):
     print(keywords)
     print(match_terms_with_keywords)
 
-    cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords)
+    cosine_vals = cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords)
+
+    if limit<=0:
+        limit = 10
+    result=[]
+    for i in range(limit-1):
+        if max(cosine_vals) == -1:
+            break
+        # print(str(cosine_vals)+' '+str(max(cosine_vals))+' '+str(start)+' '+str(limit))
+        idx_max = cosine_vals.index(max(cosine_vals))
+        # del cosine_vals[idx_max]
+        cosine_vals[idx_max]=-1
+        if start!=0:
+            start-=1
+            i-=1
         
+        else:
+            result.append(destinations[idx_max])
+    
+    return result
     
 
 def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
