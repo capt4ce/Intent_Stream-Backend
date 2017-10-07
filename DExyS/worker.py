@@ -115,20 +115,21 @@ def execute(destinations, keywords, start, limit):
     if limit<=0:
         limit = 10
     result=[]
-    for i in range(limit-1):
-        if max(cosine_vals) == -1:
-            break
-        # print(str(cosine_vals)+' '+str(max(cosine_vals))+' '+str(start)+' '+str(limit))
-        idx_max = cosine_vals.index(max(cosine_vals))
-        # del cosine_vals[idx_max]
-        cosine_vals[idx_max]=-1
-        if start!=0:
-            start-=1
-            i-=1
+    if len(cosine_vals):        
+        for i in range(limit-1):
+            if max(cosine_vals) == -1:
+                break
+            # print(str(cosine_vals)+' '+str(max(cosine_vals))+' '+str(start)+' '+str(limit))
+            idx_max = cosine_vals.index(max(cosine_vals))
+            # del cosine_vals[idx_max]
+            cosine_vals[idx_max]=-1
+            if start!=0:
+                start-=1
+                i-=1
+            
+            else:
+                result.append(destinations[idx_max])
         
-        else:
-            result.append(destinations[idx_max])
-    
     return result
     
 
@@ -138,20 +139,20 @@ def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
     print('keyword_tf '+str(keywords_tf))
     q = math.sqrt((keywords_tf**2)*1/keywords_tf)
     for i,val in enumerate(dest_tf):    
-        # dot product
-        # dot_keywords = keywords_tf*keywords_tf
+            # dot product
+            # dot_keywords = keywords_tf*keywords_tf
         dot_dest = dest_tf[i]*keywords_tf*match_terms_with_keywords[i]
-        # if int(1/keywords_tf)>len(dest_tf):
-        #     dot_dest=0
-        # else:
-        #     dot_dest = dest_tf[i]*keywords_tf*1/keywords_tf
-        #     # dot_dest = dest_tf[i]**int(1/keywords_tf)
+            # if int(1/keywords_tf)>len(dest_tf):
+            #     dot_dest=0
+            # else:
+            #     dot_dest = dest_tf[i]*keywords_tf*1/keywords_tf
+            #     # dot_dest = dest_tf[i]**int(1/keywords_tf)
 
         print(dot_dest)        
         d = math.sqrt((dest_tf[i]**2)*match_terms_with_keywords[i])
         print(str(q)+','+str(d))
 
-        # cosine similarity
+            # cosine similarity
         try:
             result.append(dot_dest/(q*d))
         except ZeroDivisionError:

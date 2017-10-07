@@ -11,7 +11,7 @@ from . import worker
 
 # the query string is matched with the dictionary first to get a proper word
 def querySearch(queryStr, start=0, limit=0):
-    queries=queryStr.split(' ')
+    queries=queryStr.split('_')
 
     # matching with dictionary
     # queries = []
