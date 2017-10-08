@@ -79,9 +79,11 @@ def execute(destinations, keywords, start, limit):
     total_terms={}
     dest_tf=[]
     match_terms_with_keywords = []
+    # initializing to zero a matrix with size the same as destinations
     for i in destinations:
         match_terms_with_keywords.append(0)
 
+    # counting how many terms in the destination that matches with the search query
     for idx,dest in enumerate(destinations):
         terms =  dest['types']
         terms += dest['tags']
@@ -91,21 +93,13 @@ def execute(destinations, keywords, start, limit):
         for term in terms:
             if term in keywords:
                 match_terms_with_keywords[idx]+=1
-        # for term in terms:
-        #     if term in terms:
-        #         terms[term] += 1
-        #     else:
-        #         terms[term] = 1
     
-    # print(total_terms)
-
     # calculating IDF of each terms in total_terms
-    for term in total_terms.keys():
-        total_terms[term]=1+math.log(len(destinations)/total_terms[term])
+    # for term in total_terms.keys():
+    #     total_terms[term]=1+math.log(len(destinations)/total_terms[term])
 
 
     # Getting TF of queries / keywords
-    # keywordsTF = Counter(keywords.keys())
     keywords_tf = 1/len(keywords.keys())
     print(keywords)
     print(match_terms_with_keywords)
@@ -121,7 +115,7 @@ def execute(destinations, keywords, start, limit):
                 break
             # print(str(cosine_vals)+' '+str(max(cosine_vals))+' '+str(start)+' '+str(limit))
             idx_max = cosine_vals.index(max(cosine_vals))
-            # del cosine_vals[idx_max]
+            destinations[idx_max]['score']=cosine_vals[idx_max]
             cosine_vals[idx_max]=-1
             if start!=0:
                 start-=1
@@ -129,8 +123,10 @@ def execute(destinations, keywords, start, limit):
             
             else:
                 result.append(destinations[idx_max])
-        
-    return result
+
+    # for i,dest in enumerate(destinations):
+    #     destinations[i]['score']=cosine_vals[i]
+    return keywords,result
     
 
 def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
@@ -139,8 +135,8 @@ def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
     print('keyword_tf '+str(keywords_tf))
     q = math.sqrt((keywords_tf**2)*1/keywords_tf)
     for i,val in enumerate(dest_tf):    
-            # dot product
-            # dot_keywords = keywords_tf*keywords_tf
+        # dot product
+        # this formula is used when all the keywords have same weight = 1
         dot_dest = dest_tf[i]*keywords_tf*match_terms_with_keywords[i]
             # if int(1/keywords_tf)>len(dest_tf):
             #     dot_dest=0
@@ -152,8 +148,8 @@ def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
         d = math.sqrt((dest_tf[i]**2)*match_terms_with_keywords[i])
         print(str(q)+','+str(d))
 
-            # cosine similarity
         try:
+            # cosine similarity
             result.append(dot_dest/(q*d))
         except ZeroDivisionError:
             result.append(0)

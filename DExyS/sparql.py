@@ -96,7 +96,8 @@ def searchMatchingDestination(queries):
         UNION {?subject   myOnto:hasArea          ?queries}
         UNION {?subject   myOnto:hasName          ?queriesLiteral}
         UNION {?subject   myOnto:hasAlias         ?queriesLiteral}
-                    
+
+        ?subject myOnto:hasDescription ?description            
         FILTER (?queries IN %(keywords)s || ?queriesLiteral IN %(keywordsLiteral)s)
         }
         """ %{'keywords':keywords,'keywordsLiteral':keywordsLiteral}
@@ -130,7 +131,7 @@ def searchMatchingDestination(queries):
                     dest_tags.append(dest_type)
         result.append({
             'name': '%s' %dest.value(ONTO.hasName),
-            # 'description': dest.value(ONTO.hasDescription),
+            'description': dest.value(ONTO.hasDescription),
             'types': dest_types,
             'tags': dest_tags,
             'country': '%s' %((dest.value(ONTO.hasCountry)).value(ONTO.hasName) if dest.value(ONTO.hasCountry) else '')

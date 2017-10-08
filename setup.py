@@ -29,11 +29,10 @@ def search():
          
         else:
             query=request.args.get('query')
-            result=dexys.querySearch(query)
-            res = {'sucess':True,'data':result}
+            keywords,result=dexys.querySearch(query)
+            res = {'sucess':True,'data':result,'search_keywords':keywords,'suggested_keywords':''}
             return jsonify(res)
-# print()
-# print('# setup.py')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
