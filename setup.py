@@ -1,7 +1,11 @@
 from DExyS import main as dexys
 from flask import jsonify
 from flask import Flask, redirect,render_template, url_for, request 
+from flask_cors import CORS
+
+
 app = Flask(__name__)
+CORS(app)
 @app.route('/destination/add', methods=['GET', 'POST'])
 def destination_add():
     if request.method == 'POST':
@@ -30,7 +34,7 @@ def search():
         else:
             query=request.args.get('query')
             keywords,result=dexys.querySearch(query)
-            res = {'sucess':True,'data':result,'search_keywords':keywords,'suggested_keywords':''}
+            res = {'success':True,'data':result,'search_keywords':keywords,'suggested_keywords':[{'title':'1st keyword', 'weight':1}]}
             return jsonify(res)
 
 if __name__ == '__main__':
