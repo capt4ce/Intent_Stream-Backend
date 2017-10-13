@@ -33,8 +33,8 @@ def search():
          
         else:
             query=request.args.get('query')
-            keywords,result=dexys.querySearch(query)
-            res = {'success':True,'data':result,'search_keywords':keywords,'suggested_keywords':[{'title':'1st keyword', 'weight':1}]}
+            keywords,suggested_keywords, result=dexys.querySearch(query)
+            res = {'success':True,'data':result,'search_keywords':keywords,'suggested_keywords':suggested_keywords}
             return jsonify(res)
 
 if __name__ == '__main__':

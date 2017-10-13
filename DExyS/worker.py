@@ -126,7 +126,10 @@ def execute(destinations, keywords, start, limit):
 
     # for i,dest in enumerate(destinations):
     #     destinations[i]['score']=cosine_vals[i]
-    return keywords,result
+    result_keywords=[]
+    for i,k in enumerate(keywords):
+        result_keywords.append({'title':k,'weight':1})
+    return keywords,result_keywords,result
     
 
 def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
