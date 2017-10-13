@@ -89,6 +89,8 @@ def execute(destinations, keywords, start, limit):
         terms +=  dest['types']
         terms += dest['tags']
         terms.append(dest['country'])
+        total_terms.update(Counter(dest['types']))
+        total_terms.update(Counter(dest['tags']))
         print(terms)
         dest_tf.append(1/len(terms))
         for term in terms:
@@ -130,7 +132,7 @@ def execute(destinations, keywords, start, limit):
     result_keywords=[]
     for i,k in enumerate(keywords):
         result_keywords.append({'title':k,'weight':1})
-    return keywords,result_keywords,result
+    return keywords,total_terms,result
 
     
 
