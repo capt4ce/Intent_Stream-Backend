@@ -130,9 +130,9 @@ def execute(destinations, keywords, start, limit):
     # for i,dest in enumerate(destinations):
     #     destinations[i]['score']=cosine_vals[i]
     result_keywords=[]
-    for i,k in enumerate(keywords):
+    for i,k in enumerate(total_terms):
         result_keywords.append({'title':k,'weight':1})
-    return keywords,total_terms,result
+    return keywords,result_keywords,result
 
     
 
