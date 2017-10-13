@@ -85,7 +85,8 @@ def execute(destinations, keywords, start, limit):
 
     # counting how many terms in the destination that matches with the search query
     for idx,dest in enumerate(destinations):
-        terms =  dest['types']
+        terms = []
+        terms +=  dest['types']
         terms += dest['tags']
         terms.append(dest['country'])
         print(terms)
@@ -130,6 +131,7 @@ def execute(destinations, keywords, start, limit):
     for i,k in enumerate(keywords):
         result_keywords.append({'title':k,'weight':1})
     return keywords,result_keywords,result
+
     
 
 def cosineSimilarity(dest_tf, keywords_tf, match_terms_with_keywords):
