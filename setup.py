@@ -40,7 +40,8 @@ def search():
             # return jsonify(res)
 
 
-            query=request.args.get('query')
+            query=request.args.get('query') #   .lower()
+            qSplitted = query.lower().split()
             # keywords,suggested_keywords, #result=dexys.querySearch(query)
             data=[]
             ky=[]
@@ -51,16 +52,19 @@ def search():
             pr=s2["items"]
             # print(pr)
             for d in pr:
-                data.append({"name":d["title"],"link":d["link"],"description":d["snippet"]})
+                data.append({"name":d["title"],"link":d["link"],"description":d["snippet"], "tags":["aaa","bbb","ccc"]})
 
             s1=requests.get('http://api.bing.com/osjson.aspx?query='+query)
             s2=json.loads(s1.text)
             pr=s2[1]
             for idx in range(len(pr)):
                 if idx!=0:
-                    ky.append({"title":pr[idx]})
+                    word = pr[idx]
+                    for q in qSplitted:
+                        word = word.replace(q,'')
+                    ky.append({"title":word.strip()})
 
-            res = {'success':True,'data':data,'suggested_keywords':ky}
+            res = {'success':True,'data':data,'suggested_keywords':ky, 'query':query}
             return jsonify(res)
 
 if __name__ == '__main__':
