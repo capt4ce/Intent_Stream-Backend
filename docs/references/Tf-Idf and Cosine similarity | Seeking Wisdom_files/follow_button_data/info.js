@@ -1,1 +1,0 @@
-/**/__twttr.setFollowersCountAndFollowing([{"following":false,"id":"23698291","screen_name":"jvembuna","name":"Jana Vembunarayanan","protected":false,"followers_count":9377,"formatted_followers_count":"9,377 followers","age_gated":false}]);
