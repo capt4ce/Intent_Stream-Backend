@@ -7,38 +7,6 @@ import ast
 from flask_cors import CORS
 import nltk
 
-# def google_search_dummy():
-#     a ="""
-#             {
-#         "items": [
-#             {
-#             "kind": "customsearch#result",
-#             "title": "Computer - Wikipedia",
-#             "displayLink": "en.wikipedia.org",
-#             "snippet": "A computer is a device that can be instructed to carry out arbitrary sequences of \narithmetic or logical operations automatically. The ability of computers to follow \ngeneralized sets of operations, called programs, enables them to perform an \nextremely wide range of tasks. Such computers are used as control systems for a \nvery ...",
-#             "cacheId": "fCBvEeFb9p8J",
-#             "pagemap": {
-#                 "cse_thumbnail": [
-#                 {
-#                 "width": "119",
-#                 "height": "79",
-#                 }
-#                 ],
-#                 "metatags": [
-#                 {
-#                 "referrer": "origin-when-cross-origin"
-#                 }
-#                 ],
-#                 "cse_image": [
-
-#                 ]
-#             }
-            
-#             ]
-#             }
-#     """
-#     return json.loads(a)
-
 
 app = Flask(__name__)
 CORS(app)
@@ -68,11 +36,6 @@ def search():
                 return jsonify(req)
          
         else:
-            # query=request.args.get('query')
-            # keywords,suggested_keywords, result=dexys.querySearch(query)
-            # res = {'success':True,'data':result,'search_keywords':keywords,'suggested_keywords':suggested_keywords}
-            # return jsonify(res)
-
 
             query=request.args.get('query') #   .lower()
             qSplitted = query.split()
